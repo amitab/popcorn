@@ -13,7 +13,7 @@ class BayesClassifier {
 	private $textCleaner;
 	
 	public function __construct () {
-		$this->collection = '1399214249_classified';
+		$this->collection = '1399303719_classified';
 		$this->tokenizer = new \Sentiment\Analysis\Tools\Tokenizer();
 		$this->textCleaner = new \Sentiment\Analysis\Tools\TextCleaner();
 		

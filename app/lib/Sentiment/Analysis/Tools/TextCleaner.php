@@ -5,9 +5,11 @@ namespace Sentiment\Analysis\Tools;
 class TextCleaner {
 	
 	private $wordDatabase;
+	private $negationCount;
 	
 	public function __construct () {
 		$this->wordDatabase = require_once('DataStore/WordDatabase.php');
+		$this->negationCount = 0;
 	}
 	
 	private function filter ($word) {
@@ -33,12 +35,17 @@ class TextCleaner {
 		return $array_of_words;
 	}
 	
+	public function getNegationCount () {
+		return $this->negation;
+	}
+	
 	public function clean ($array_of_words) {
 		$word_bag = array();
 		
 		for($i = 0; $i < count($array_of_words); $i++) {
 			$word = $array_of_words[$i];
 			if(in_array($array_of_words[$i], $this->wordDatabase['negation_words'])) {
+				$this->negationCount++;
 				if(isset($array_of_words[$i-1])) {
 					$word_bag[$array_of_words[$i-1]] = $array_of_words[$i-1];
 				}

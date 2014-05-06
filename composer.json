@@ -20,7 +20,8 @@
 			"app/tests/TestCase.php"
 		],
         "psr-0": {
-            "Sentiment": "app/lib"
+            "Sentiment": "app/lib",
+			"MovieDatabase": "app/lib"
         }
 	},
 	"scripts": {

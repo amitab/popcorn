@@ -121,6 +121,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Jenssegers\Mongodb\MongodbServiceProvider',
 		'Sentiment\Analysis\AnalysisServiceProvider',
+		'MovieDatabase\Wrapper\MovieDatabaseServiceProvider',
 		'Thujohn\Twitter\TwitterServiceProvider',
 		
 	),
