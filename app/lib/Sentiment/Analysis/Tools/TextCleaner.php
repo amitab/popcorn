@@ -21,6 +21,9 @@ class TextCleaner {
 	}
 	
 	public function negation ($array_of_words) {
+		
+		$this->negationCount = 0;
+		
 		for($i = 0; $i < count($array_of_words); $i++) {
 			if(in_array($array_of_words[$i], $this->wordDatabase['negation_words'])) {
 				if(isset($array_of_words[$i-1])) {
@@ -35,29 +38,33 @@ class TextCleaner {
 		return $array_of_words;
 	}
 	
-	public function getNegationCount () {
-		return $this->negation;
+	public function getNegationCount() {
+		return $this->negationCount;
 	}
 	
 	public function clean ($array_of_words) {
-		$word_bag = array();
+		
+		$this->negationCount = 0;
 		
 		for($i = 0; $i < count($array_of_words); $i++) {
 			$word = $array_of_words[$i];
-			if(in_array($array_of_words[$i], $this->wordDatabase['negation_words'])) {
+			
+			if(in_array($word, $this->wordDatabase['negation_words'])) {
 				$this->negationCount++;
 				if(isset($array_of_words[$i-1])) {
-					$word_bag[$array_of_words[$i-1]] = $array_of_words[$i-1];
+					if(strpos($array_of_words[$i-1],'!') === false)
+						$array_of_words[$i-1] = '!' . $array_of_words[$i-1];
 				}
 				
 				if(isset($array_of_words[$i+1])) {
-					$word_bag[$array_of_words[$i+1]] = $array_of_words[$i+1];
+					if(strpos($array_of_words[$i+1],'!') === false)
+						$array_of_words[$i+1] = '!' . $array_of_words[$i+1];
 				}
 			} 
-			$word_bag[$word] = $word;
+			
 		}
 		
-		return array_filter($word_bag, array($this, 'filter'));
+		return array_filter($array_of_words, array($this, 'filter'));
 	}
 
 }

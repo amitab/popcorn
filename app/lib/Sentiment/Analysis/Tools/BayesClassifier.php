@@ -9,11 +9,11 @@ class BayesClassifier {
 	private $score;
 	private $collection;
 	
-	private $tokenizer;
-	private $textCleaner;
+	public $tokenizer;
+	public $textCleaner;
 	
 	public function __construct () {
-		$this->collection = '1399303719_classified';
+		$this->collection = '1399382435_classified';
 		$this->tokenizer = new \Sentiment\Analysis\Tools\Tokenizer();
 		$this->textCleaner = new \Sentiment\Analysis\Tools\TextCleaner();
 		
@@ -77,7 +77,7 @@ class BayesClassifier {
 					if($wordicity == 0) $wordicity = 0.001;
 					else if ($wordicity == 1) $wordicity = 0.999;
 					$log_sum += (log( 1 - $wordicity ) - log( $wordicity ));
-
+					
 				}
 
 			}

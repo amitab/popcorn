@@ -49,7 +49,16 @@ Route::get('/', function()
 		)
 	);
 	
+	{{ HTML::style('css/style.css') }}
+	{{ HTML::script('js/default.js') }}
+	
 });*/
+
+Route::get('/test', function() {
+	$analyser = App::make('Analyser');
+	print_r($analyser->classify('If you don\'t retweet this, you probably don\'t have a heart'));
+	return '';
+});
 
 Route::get('/tweet/{keyword}', 'TweetController@getTweets');
 Route::get('/content/now_playing', 'ContentController@getNowPlaying');
