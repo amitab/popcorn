@@ -65,7 +65,33 @@ class ContentController extends BaseController {
     	$movieRepository = App::make('MovieRepository');
     	$imageHelper = App::make('ImageHelper');
     	
-    	return '';
+    	$movie = $movieRepository->load(87421);
+    	$backdropImage = $movie->getBackdropPath();
+    	$posterImage = $movie->getPosterPath();
+    	
+    	$genres = $movie->getGenres();
+    	$genreList = array();
+    	foreach($genres as $genre) {
+    		$genreList[] = $genre->getName();
+    	}
+    	$genreList = implode(', ', $genreList);
+    	
+    	$review = array(
+    		'backdropImage' => $imageHelper->getUrl($backdropImage),
+    		'posterImage' => $imageHelper->getUrl($posterImage),
+    		'genreList' => $genreList,
+    		'homepage' => $movie->getHomepage(),
+    		'overview' => $movie->getOverview(),
+    		'popularity' => $movie->getPopularity(),
+    		'releaseDate' => $movie->getReleaseDate(),
+    		'status' => $movie->getStatus(),
+    		'tagline' => $movie->getTagline(),
+    		'title' => $movie->getTitle(),
+    		'voteAverage' => $movie->getVoteAverage(),
+    		'voteCount' => $movie->getVoteCount()
+    	);
+    	    	
+    	return Response::json($review);	
     }
 
 }
