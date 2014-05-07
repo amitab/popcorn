@@ -21,8 +21,8 @@ Route::get('/', function()
 Route::get('/test', function() {
 	$analyser = App::make('Analyser');
 	//print_r($analyser->classify('Life is not about how hard you can hit, but how much you can get hit and still keep moving forward.'));
-	print_r($analyser->classify('Life is not about how hard you can hit, but how much you can get hit &amp; still keep moving forward. -Rocky Balboa'));
-	print_r($analyser->classify('I don\'t give a shit.'));
+	print_r($analyser->classify('@kurosarakokuou It would be odd to have a Wolverine movie suddenly set decades into the future. More time jumps confuse ppl'));
+	//print_r($analyser->classify('I don\'t give a shit.'));
 	return '';
 });
 
