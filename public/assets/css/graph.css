@@ -1,0 +1,215 @@
+
+
+
+.menu-content
+{
+    background-color: #707070;
+    border: 0 solid #606060;
+    border-top-width: 1px;
+    min-height: 4px;
+    min-width: 950px;
+    padding: 0 40px;
+}
+
+    .menu-content .democase-menu
+    {
+        color: #ffffff;
+        width: 950px;
+        margin: 0 auto;
+        padding: 30px 0;
+    }
+
+        .menu-content .democase-menu:after
+        {
+            content: " ";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .menu-content .democase-menu h5,
+        .menu-content .democase-menu h6
+        {
+            font-weight: 400;
+            text-transform: none;
+            padding: 0 0 10px 0;
+        }
+
+        .menu-content .democase-menu h6
+        {
+            font-family: 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 0;
+        }
+
+        .menu-content .democase-menu .category
+        {
+            height: 100%;
+            width: 25%;
+            float: left;
+        }
+
+.category .subcategory
+{
+    padding: 0 0 20px 0;
+}
+
+.category h5
+{
+    margin: 0px;
+}
+
+.category .subcategory h6
+{
+    margin: 0px;
+}
+
+.category .subcategory ul
+{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+    .category .subcategory ul li
+    {
+        line-height: 18px;
+    }
+
+        .category .subcategory ul li a
+        {
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+        }
+
+            .category .subcategory ul li.active a,
+            .category .subcategory ul li a:hover
+            {
+                background-color: #B0B0B0;
+                margin: -2px -3px;
+                padding: 2px 3px;
+            }
+
+        .category .subcategory ul li.active a
+        {
+            background-color: #ffffff;
+            color: #707070;
+        }
+		
+            .category .subcategory ul li.isnew a:after {
+                content: ' ';
+                position: relative;
+                display: inline-block;
+                background-image: url('images/newdemo.png');
+                width: 26px;
+                height: 14px;
+                top: 3px;
+                left: 5px;
+                margin: 0 5px 0 0;
+            }
+
+.title
+{
+    height: 45px;
+    line-height: 45px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 950px;
+}
+
+    .title h1,
+    .title h2
+    {
+        display: inline;
+        font-size: 30px;
+        color: #565656;
+        text-transform: none;
+    }
+
+    .title h2
+    {
+        color: #f17f21
+    }
+
+.content
+{
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 950px;
+}
+
+.pane
+{
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #cfcfcf;
+    border-radius: 3px;
+    text-align: center;
+    width: 850px;
+    height: 440px;
+    padding: 50px;
+    margin: 0 auto;
+    box-shadow: 0px 1px 3px 0px #e3e3e3;
+    box-shadow: 0px 1px 3px 0px rgba(112,112,112,0.05);
+}
+
+    .pane .long-title
+    {
+        position: absolute;
+        top: 15px;
+        text-align: center;
+        width: 850px;
+        overflow: hidden;
+    }
+
+        .pane .long-title h3
+        {
+            font-size: 28px;
+        }
+
+    .pane .credits
+    {
+        color: rgba(128, 128, 128, 0.75);
+        position: absolute;
+        bottom: 20px;
+        right: 30px;
+    }
+	
+/*Sparklines demo*/
+
+.demo-table {
+    margin-top: 80px;
+    width: 100%;
+    border: 1px solid #c2c2c2;
+    color: #565656;
+    border-collapse: collapse;
+}
+
+    .demo-table th,
+    .demo-table td {
+        font-weight: 400;
+        width: 200px;
+        padding: 25px 10px 5px 10px;
+        border: 1px solid #e5e5e5;
+    }
+
+    .demo-table th {
+        padding: 25px 15px 20px 15px;
+        border: 1px solid #c2c2c2;
+    }
+
+    .demo-table tr:nth-child(2) td {
+        border-top: 1px solid #c2c2c2;
+    }
+
+    .demo-table td:first-of-type {
+        border-left: 1px solid #c2c2c2;
+    }
+
+    .demo-table .sparkline {
+        width: 200px;
+        height: 30px;
+    }

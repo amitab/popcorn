@@ -69,13 +69,11 @@ class BayesClassifier {
 					$word_inverse_probability = $inverse_data['score']/$inverse_data['sentence_count'];
 
 					$wordicity = $word_probability/($word_probability + $word_inverse_probability);
-					
-					if($occurance_count <= 0.1 * $label['sentence_count']) { // rare words
-						$wordicity = ( (1 * 0.5) + ($occurance_count * $wordicity) ) / ( 1 + $occurance_count );
-					}
+					$wordicity = ( (1 * 0.5) + ($occurance_count * $wordicity) ) / ( 1 + $occurance_count );
 					
 					if($wordicity == 0) $wordicity = 0.001;
 					else if ($wordicity == 1) $wordicity = 0.999;
+					echo $token . ' : '. $wordicity . '</br>';
 					$log_sum += (log( 1 - $wordicity ) - log( $wordicity ));
 					
 				}

@@ -12,43 +12,7 @@
 */
 /*
 Route::get('/', function()
-{
-	$token  = new \Tmdb\ApiToken('d918f6e1124aa29073c2b6530bc35315');
-	$client = new \Tmdb\Client($token);
-	$client->setCaching(true, '/tmp/php-tmdb-api');
-	
-	$repository = new \Tmdb\Repository\MovieRepository($client);
-	$movie      = $repository->load(87421);
-
-	echo $movie->getTitle();
-	
-	$users = DB::collection('classified')->sum('pos_score');
-	var_dump($users);
-	
-	return '';
-	
-	$word = 'hello';
-	$word_info = DB::collection('classified')->where('word', $word)->first();
-	
-	print_r($word_info);
-	
-	$sentimentAnalyser = App::make('Analyser');
-	print_r($sentimentAnalyser->classify('I love this movie!')); 
-	print_r($sentimentAnalyser->classify('He likes the movie but I did not.'));
-	print_r($sentimentAnalyser->classify('I didn\'t like the movie one bit.'));
-	print_r($sentimentAnalyser->classify('The actress in this movie is bad.'));
-	return '';
-	
-	return Twitter::getUserTimeline(array('screen_name' => 'thujohn', 'count' => 20, 'format' => 'json'));
-	return Twitter::getSearch(
-		array(
-			'q' => 'gravity movie', // required
-			'result_type' => 'recent',
-			'count' => 5,
-			'format' => 'json' // required
-		)
-	);
-	
+{	
 	{{ HTML::style('css/style.css') }}
 	{{ HTML::script('js/default.js') }}
 	
@@ -56,13 +20,15 @@ Route::get('/', function()
 
 Route::get('/test', function() {
 	$analyser = App::make('Analyser');
-	print_r($analyser->classify('If you don\'t retweet this, you probably don\'t have a heart'));
+	//print_r($analyser->classify('Life is not about how hard you can hit, but how much you can get hit and still keep moving forward.'));
+	print_r($analyser->classify('Life is not about how hard you can hit, but how much you can get hit &amp; still keep moving forward. -Rocky Balboa'));
+	print_r($analyser->classify('I don\'t give a shit.'));
 	return '';
 });
 
-Route::get('/tweet/{keyword}', 'TweetController@getTweets');
-Route::get('/content/now_playing', 'ContentController@getNowPlaying');
-Route::get('/content/popular', 'ContentController@getPopular');
+Route::post('/tweet/{keyword}', 'TweetController@getTweets');
+Route::post('/content/now_playing', 'ContentController@getNowPlaying');
+Route::post('/content/popular', 'ContentController@getPopular');
 Route::get('/content/review/{movieId}', 'ContentController@getMovie');
 
 Route::get('/', 'HomeController@showHomePage');

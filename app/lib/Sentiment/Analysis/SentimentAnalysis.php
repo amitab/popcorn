@@ -14,7 +14,9 @@ class SentimentAnalysis {
 		
 		$scores = $this->classifier->classify($string);
 		// double negation solution
-		if($this->classifier->textCleaner->getNegationCount() % 2 == 0) {
+		
+		$negationCount = $this->classifier->textCleaner->getNegationCount();
+		if($negationCount % 2 == 0 && $negationCount != 0) {
 			$temp = $scores['pos'];
 			$scores['pos'] = $scores['neg'];
 			$scores['neg'] = $temp;

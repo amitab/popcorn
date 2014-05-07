@@ -43,7 +43,8 @@ class TextCleaner {
 	}
 	
 	public function clean ($array_of_words) {
-		
+		$array_of_words = array_filter($array_of_words, array($this, 'filter'));
+		$array_of_words = array_values($array_of_words);
 		$this->negationCount = 0;
 		
 		for($i = 0; $i < count($array_of_words); $i++) {
@@ -64,7 +65,8 @@ class TextCleaner {
 			
 		}
 		
-		return array_filter($array_of_words, array($this, 'filter'));
+		//return array_filter($array_of_words, array($this, 'filter'));
+		return $array_of_words;
 	}
 
 }

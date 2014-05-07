@@ -1,0 +1,8 @@
+@-webkit-keyframes slideshow {
+  0%    { background-position: 0 0; }
+  100%  { background-position: -200% 0; }
+}
+
+#slide-1.anim {
+	-webkit-animation: slideshow 50s linear infinite;
+}

@@ -50,13 +50,15 @@ class ContentController extends BaseController {
     		$movieItem['id'] = $movie->getId();
     		$movieItem['title'] = $movie->getTitle();
     		$movieItem['popularity'] = $movie->getPopularity();
-    		$movieItem['releaseDate'] = $movie->getReleaseDate();
+    		$movieItem['releaseDate'] = $movie->getReleaseDate();    		
+    		$movieItem['voteCount'] = $movie->getVoteCount();  		
+    		$movieItem['voteAverage'] = $movie->getVoteAverage();
     		
     		$movies[] = $movieItem;
     		
     	}
     	
-    	//print_r($movies);
+    	//print_r($response);
     	
     	return Response::json($movies);	
     }
