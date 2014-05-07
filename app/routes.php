@@ -26,7 +26,7 @@ Route::get('/test', function() {
 	return '';
 });
 
-Route::post('/tweet/{keyword}', 'TweetController@getTweets');
+Route::post('/tweet', 'TweetController@getTweets');
 Route::post('/content/now_playing', 'ContentController@getNowPlaying');
 Route::post('/content/popular', 'ContentController@getPopular');
 Route::get('/content/review/{movieId}', 'ContentController@getMovie');

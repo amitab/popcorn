@@ -2,18 +2,19 @@
 
 class TweetController extends BaseController {
 
-    public function getTweets($keyword) {
+    public function getTweets() {
     	
-    	/*$keyword = Input::get('movie_name'); */
-    	$keyword = $keyword . '+exclude:retweets';
+    	$keyword = Input::get('keyword'); 
+    	$keyword = $keyword . ' movie+exclude:retweets';
     	
     	$tweets = Twitter::getSearch(
 			array(
 				'q' => $keyword, // required
-				'result_type' => 'popular',
+				'result_type' => 'mixed',
 				'count' => 5,
 				'format' => 'json', // required
-				'lang' => 'en'
+				'lang' => 'en',
+				'src' => 'typd'
 			)
 		);
     	

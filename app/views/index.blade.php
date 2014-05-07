@@ -286,12 +286,12 @@
 	
 	
 	{{ HTML::script("assets/js/jquery-1.10.2.min.js") }}
-	{{ HTML::script("assets/js/jquery-migrate-1.2.1.min.js") }}
+	<!--{{ HTML::script("assets/js/jquery-migrate-1.2.1.min.js") }}-->
 	<!--{{ HTML::script("assets/js/bootstrap.min.js") }}-->
 	{{ HTML::script("assets/js/jquery.easing.1.3.js") }}
 	
 	{{ HTML::script("assets/js/script.js") }}
-	
+	{{ HTML::script("assets/js/menu.js") }}
 	{{ HTML::script("assets/js/load_popular.js") }}
 	
 	<!-- fancybox init -->

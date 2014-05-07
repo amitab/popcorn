@@ -1,3 +1,4 @@
+
 g.dxg-labels
 {
 	fill: white!important;
@@ -8,7 +9,8 @@ g.dx-tracker path
 }
 g.dxg-title text
 {
-	fill:gold;
+	fill:white!important;
+	font-family: "Titillium Web", sans-serif!important;	
 }
 .movie_name
 {
@@ -104,6 +106,8 @@ body {
 .navbar-responsive-collapse {
 	margin: 0 auto;
 	width: 80%;
+	-webkit-transition: all 1s ease-in-out;
+	height: 100px;
 }
 
 .nav li {

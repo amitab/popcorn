@@ -67,8 +67,8 @@ class ContentController extends BaseController {
     	$movieRepository = App::make('MovieRepository');
     	$imageHelper = App::make('ImageHelper');
     	
-    	$movie = $movieRepository->load(87421);
-    	$backdropImage = $movie->getBackdropPath();
+    	$movie = $movieRepository->load($movieId);
+    	
     	$posterImage = $movie->getPosterPath();
     	
     	$genres = $movie->getGenres();
@@ -78,22 +78,34 @@ class ContentController extends BaseController {
     	}
     	$genreList = implode(', ', $genreList);
     	
+    	$credits = $movie->getCredits();
+    	$casts = $credits->getCast();
+    	$casts = $casts->getCast();
+    	$castList = array();
+    	foreach($casts as $cast) {
+    		$castList[] = $cast->getName();
+    	}
+    	$castList = implode(', ', $castList);
+    	
     	$review = array(
-    		'backdropImage' => $imageHelper->getUrl($backdropImage),
     		'posterImage' => $imageHelper->getUrl($posterImage),
     		'genreList' => $genreList,
+    		'castList' => $castList,
     		'homepage' => $movie->getHomepage(),
     		'overview' => $movie->getOverview(),
     		'popularity' => $movie->getPopularity(),
-    		'releaseDate' => $movie->getReleaseDate(),
+    		'releaseDate' => $movie->getReleaseDate()->format('Y-m-d H:i:s'),
     		'status' => $movie->getStatus(),
     		'tagline' => $movie->getTagline(),
     		'title' => $movie->getTitle(),
     		'voteAverage' => $movie->getVoteAverage(),
-    		'voteCount' => $movie->getVoteCount()
+    		'voteCount' => $movie->getVoteCount(),
+    		'runtime' => $movie->getRuntime(),
+    		
     	);
+    	//print_r($review);
+    	return View::make('review', array('data' => $review));
     	    	
-    	return Response::json($review);	
     }
 
 }
