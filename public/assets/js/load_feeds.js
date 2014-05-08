@@ -1,6 +1,14 @@
 $(document).ready(function () {
 	
-	function loadTweets(keyword) {
+	function showLoading(element) {
+		
+		var loadingText = 'Loading...';
+		
+		var loading = '<div style="display: inline-block;"><div class="windows8"><div class="wBall" id="wBall_1"><div class="wInnerBall"></div></div><div class="wBall" id="wBall_2"><div class="wInnerBall"></div></div><div class="wBall" id="wBall_3"><div class="wInnerBall"></div></div><div class="wBall" id="wBall_4"><div class="wInnerBall"></div></div><div class="wBall" id="wBall_5"><div class="wInnerBall"></div></div></div><div class="loading_text">' + loadingText + '</div></div>';
+		$(element).html(loading);
+	}
+	
+	function loadTweets(keyword, element) {
 		
 		$.ajax({
 			url: '/tweet',
@@ -34,8 +42,9 @@ $(document).ready(function () {
 				
 				});
 				
-				$('#tweet_loader').html(html);
-				console.log(data);
+				$(element).html('');
+				$(element).html(html);
+				//console.log(data);
 			},
 			error:function(){
 				$("#result").html('There is error while submit');
@@ -44,6 +53,7 @@ $(document).ready(function () {
 	}
 				
 	var movieName = $('#movie_name').text();
-	loadTweets(movieName);
+	showLoading('#tweet_loader');
+	loadTweets(movieName, '#tweet_loader');
 	
 });

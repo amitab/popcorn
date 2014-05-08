@@ -74,7 +74,7 @@ class BayesClassifier {
 					
 					if($wordicity == 0) $wordicity = 0.001;
 					else if ($wordicity == 1) $wordicity = 0.999;
-					echo $token . ' : '. $wordicity . '</br>';
+					//echo $token . ' : '. $wordicity . '</br>';
 					$log_sum += (log( 1 - $wordicity ) - log( $wordicity ));
 					
 				}

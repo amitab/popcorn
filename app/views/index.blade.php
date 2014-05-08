@@ -101,31 +101,7 @@
 			</div><!-- /row -->
 			<div class="row content-row">
 				
-<ul id="popular_movie_list">
-		<!--<li class="movie_item">
-			<div class="movie_card">
-				<div class="movie_image">
-					<img src="images/cards/p1.jpg">
-				</div>
-				<div class="mov_foot">
-				<div class="movie_details">
-					<div class="movie_header">Random Header </div>
-					<div class="movie_release_date">Release date:12-03-2014</div>
-					<div class="movie_snippet">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua...</div>
-				</div>
-				<div class="movie_footer">
-					<ul>
-						<li title="Book Tickets in a theatre near you"><i class="icon icon-ticket"></i>
-						</li><li title="Review"><i class="icon icon-film"></i>
-						</li><li title="Like count"><i class="icon icon-heart"></i>
-						</li><li title="Share"><i class="icon icon-share"></i>
-						</li>
-					</ul>
-				</div>
-				</div>
-			</div>
-		</li>-->
+	<ul id="popular_movie_list">
 		
 	</ul>
 	
@@ -297,7 +273,7 @@
 	<!-- fancybox init -->
 	<script>
 	$(document).ready(function(e) {
-		var lis = $('.nav > li');
+		/*var lis = $('.nav > li');
 		menu_focus( lis[0], 1 );
 		
 		$(".fancybox").fancybox({
@@ -307,7 +283,8 @@
 					locked: false
 				}
 			}
-		});
+		});*/
+		
 	
 	});
 	</script>
