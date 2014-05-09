@@ -40,3 +40,4 @@ Route::post('/content/popular', 'ContentController@getPopular');
 
 Route::get('/content/review/{movieId}', 'ContentController@getMovie');
 Route::get('/', 'HomeController@showHomePage');
+Route::get('/search', 'ContentController@searchMovie');

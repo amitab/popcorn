@@ -40,6 +40,19 @@ class MovieDatabaseServiceProvider extends ServiceProvider {
             return new \Tmdb\Helper\ImageHelper($config);
         };
         
+        $app['MovieSearchQuery'] = function() {
+        	return new \Tmdb\Model\Search\SearchQuery\MovieSearchQuery;
+        };
+        
+        $app['MovieSearchRepository'] = function() {
+        	$token  = new \Tmdb\ApiToken('d918f6e1124aa29073c2b6530bc35315');
+			$client = new \Tmdb\Client($token);
+			$client->setCaching(true, '/tmp/php-tmdb-api');
+        	
+        	return new \Tmdb\Repository\SearchRepository($client);
+        	
+        };
+        
     }
 
 }

@@ -48,7 +48,7 @@ class ContentController extends BaseController {
     		$movieItem['poster'] = $imageHelper->getUrl($posterImage);
     		$movieItem['backdrop'] = $imageHelper->getUrl($backdropImage);
     		$movieItem['id'] = $movie->getId();
-    		$movieItem['title'] = $movie->getTitle();
+    		$movieItem['title'] = $movie->getOriginalTitle();
     		$movieItem['popularity'] = $movie->getPopularity();
     		$movieItem['releaseDate'] = $movie->getReleaseDate();    		
     		$movieItem['voteCount'] = $movie->getVoteCount();  		
@@ -97,7 +97,7 @@ class ContentController extends BaseController {
     		'releaseDate' => $movie->getReleaseDate()->format('Y-m-d H:i:s'),
     		'status' => $movie->getStatus(),
     		'tagline' => $movie->getTagline(),
-    		'title' => $movie->getTitle(),
+    		'title' => $movie->getOriginalTitle(),
     		'voteAverage' => $movie->getVoteAverage(),
     		'voteCount' => $movie->getVoteCount(),
     		'runtime' => $movie->getRuntime(),
@@ -106,6 +106,22 @@ class ContentController extends BaseController {
     	//print_r($review);
     	return View::make('review', array('data' => $review));
     	    	
+    }
+    
+    public function searchMovie() {
+    	$keyword = 'toka';
+    	
+    	$movieQuery = App::make('MovieSearchQuery');
+    	$movieQuery->searchType('ngram');
+    	$movieQuery->language('en');
+    	
+    	$movieRepository = App::make('MovieSearchRepository');
+    	$searchResult = $movieRepository->searchMovie($keyword, $movieQuery);
+    	
+    	print_r($searchResult);
+    	
+    	return '';
+    	
     }
 
 }
