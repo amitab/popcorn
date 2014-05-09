@@ -43,7 +43,7 @@
 					<li data-slide="1" class="active"><a id="menu-link-1" href="#slide-1" title="Back to top"><span class="icon icon-home"></span> <span class="text">HOME</span></a></li>
 					<li data-slide="2" class=""><a id="menu-link-2" href="#slide-2" title="trending movies"><span class="icon icon-star"></span> <span class="text">TOP TRENDING</span></a></li>
 					
-					<li data-slide="4" class=""><a id="menu-link-1" href="#slide-4" title="Book Tickets in a theatre near you"><span class="icon icon-money"></span> <span class="text">BOOK TICKETS</span></a></li>
+					<li data-slide="4" class=""><a href="http://www.google.com" title="Book Tickets in a theatre near you"><span class="icon icon-money"></span> <span class="text">BOOK TICKETS</span></a></li>
 					
 					<li data-slide="6" class=""><a id="menu-link-6" href="#slide-6" title="Connect with social media"><span class="icon icon-envelope"></span> <span class="text">CONTACT</span></a></li>
 					<li data-slide="5" class=""><a id="menu-link-5" href="#slide-6" title="Search for movies "><span class="icon icon-search"></span> <span class="text"> SEARCH</span></a></li>
@@ -115,19 +115,19 @@
 	<!-- /slide3 -->
 	
 	<!-- === Slide 4 - Process === -->
-	<div class="slide story" id="slide-4" data-slide="4">
+	<!--<div class="slide story" id="slide-4" data-slide="4">
 		<div class="container">
 			<div class="row title-row">
 				<div class="col-12 font-thin">Book your tickets <span class="font-semibold"> with ease! <span class="icon icon-ticket"></span></span></div>
-			</div><!-- /row -->
+			</div>
 			<div class="row line-row">
 				<div class="hr">&nbsp;</div>
-			</div><!-- /row -->
+			</div>
 			<div class="row subtitle-row">
 				<div class="col-sm-1 hidden-sm">&nbsp;</div>
 				<div class="col-12 col-sm-10 font-light">Select the movie you want to watch and buy tickets</div>
 				<div class="col-sm-1 hidden-sm">&nbsp;</div>
-			</div><!-- /row -->
+			</div>
 			<div class="row content-row">
 				<div class="selectors">
   				<form action="" method="">        
@@ -153,9 +153,9 @@
 
   				</form>
   				</div>
-			</div><!-- /row -->
-		</div><!-- /container -->
-	</div>
+			</div>
+		</div>
+	</div>-->
 <!-- /slide4 -->
 	
 	<!-- === Slide 5 === -->
@@ -176,11 +176,17 @@
 			<div class="search">
   					<form action="" method="">  
   					<div class="sbox">     
-   					<input type="search" placeholder="Search for movies">      
-    				<button>Go  </button>
-  										</div>
-  										</div> 
-				<div class="selectors">
+   					<input type="search" id="search_box" placeholder="Search for movies">      
+    				<button id="search_button">Go  </button>
+  					</div>
+  			</div> 
+  			
+  			<div id="search_result_list">
+  				<ul>
+  					
+  				</ul>
+  			</div>
+				<!--<div class="selectors">
   				<form action="" method="">
   				<div class="movie_name">    
 	   				<label>Select movie name</label><select>
@@ -209,7 +215,7 @@
 					</form>
 					</form>
 
-  				</div>
+  				</div>-->
 			</div><!-- /row -->
 		</div><!-- /container -->
 	</div>
@@ -244,7 +250,7 @@
 					<span class="hover-text font-light ">Bangalore, India<br>zip code 98443</span></a>
 				</div><!-- /col12 -->
 				<div class="col-12 col-sm-2 with-hover-text">
-					<p><a target="_blank" href="#"><i class="icon icon-facebook"></i></a></p>
+					<p><a target="_blank" href="http://www.facebook.com/pages/Popcorn/552949734821602"><i class="icon icon-facebook"></i></a></p>
 					<span class="hover-text font-light ">facebook/popcornmovies</span></a>
 				</div><!-- /col12 -->
 				<div class="col-12 col-sm-2 with-hover-text">
@@ -269,6 +275,7 @@
 	{{ HTML::script("assets/js/script.js") }}
 	{{ HTML::script("assets/js/menu.js") }}
 	{{ HTML::script("assets/js/load_popular.js") }}
+	{{ HTML::script("assets/js/search.js") }}
 	
 	<!-- fancybox init -->
 	<script>

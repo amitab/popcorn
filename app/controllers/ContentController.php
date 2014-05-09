@@ -109,18 +109,39 @@ class ContentController extends BaseController {
     }
     
     public function searchMovie() {
-    	$keyword = 'toka';
+    	//$keyword = 'toka';
+    	
+    	$keyword = Input::get('keyword');
     	
     	$movieQuery = App::make('MovieSearchQuery');
     	$movieQuery->searchType('ngram');
     	$movieQuery->language('en');
     	
     	$movieRepository = App::make('MovieSearchRepository');
+    	$imageHelper = App::make('ImageHelper');
     	$searchResult = $movieRepository->searchMovie($keyword, $movieQuery);
     	
-    	print_r($searchResult);
+    	$response = $searchResult->toArray();
+    	$movies = array();
     	
-    	return '';
+    	foreach($response as $movie) {
+    		$posterImage = $movie->getPosterPath();
+    		$backdropImage = $movie->getBackdropPath();
+    		
+    		$movieItem['poster'] = $imageHelper->getUrl($posterImage);
+    		$movieItem['backdrop'] = $imageHelper->getUrl($backdropImage);
+    		$movieItem['id'] = $movie->getId();
+    		$movieItem['title'] = $movie->getOriginalTitle();
+    		$movieItem['popularity'] = $movie->getPopularity();
+    		$movieItem['releaseDate'] = $movie->getReleaseDate();    		
+    		$movieItem['voteCount'] = $movie->getVoteCount();  		
+    		$movieItem['voteAverage'] = $movie->getVoteAverage();
+    		
+    		$movies[] = $movieItem;
+    		
+    	}
+    	
+    	return Response::json($movies);	
     	
     }
 

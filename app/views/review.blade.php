@@ -86,7 +86,7 @@
 					<div class="span4">
 						<div class="content-heading clearfix media">
 							<div class="pull-right wall">
-								<img src="{{ $data['posterImage'] }}" width="300" />
+								<img src="{{ $data['posterImage'] }}" width="400" />
 							</div>
 							<div class="details">
 								<div class="heading">
